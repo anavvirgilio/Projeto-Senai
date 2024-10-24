@@ -1,0 +1,140 @@
+/* Página do cardápio para Alunos */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+:root {
+    --white-color: #fff;
+    --red-color: #c42222;
+    --grey-color: #707070;
+    --grey-color-light: #aaa;
+    --blue-color: #e7f2fd;
+}
+
+body {
+    background-color: var(--blue-color);
+    transition: all 0.5s ease;
+}
+
+#logo_sesi {
+    width: 100px;
+    height: 45px;
+}
+
+/* Barra de navegação */
+.barra_navegaçao {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    left: 0;
+    background-color: var(--white-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+    z-index: 1000;
+    box-shadow: 0 0 5px var(--grey-color-light);
+}
+
+.logo_item {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--red-color);
+}
+
+.barra_navegaçao img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+
+.barra_navegaçao_content {
+    display: flex;
+    align-items: center;
+    column-gap: 25px;
+}
+
+.barra_navegaçao_content i {
+    cursor: pointer;
+    font-size: 20px;
+    color: var(--grey-color);
+}
+
+.conteudo {
+    margin: auto;
+    margin-top: 80px;
+    width: 90%;
+    max-width: 1200px;
+    padding: 20px;
+    background-color: var(--white-color);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.titulo {
+    text-align: center;
+    color: var(--red-color);
+    margin-bottom: 20px;
+}
+
+.container_cardapio {
+    text-align: center;
+    margin-top: 25px;
+    border: 2px solid var(--grey-color-light);
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.container_cardapio h3 {
+    margin-bottom: 15px;
+}
+
+#imgCardapio {
+    margin: auto;
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+@media (max-width: 450px) {
+    .barra_navegaçao {
+        display: flex;
+        padding: 10px;
+        box-shadow: none;
+    }
+
+    .barra_navegaçao_content i {
+        font-size: 18px;
+    }
+
+    .conteudo {
+        margin-top: 60px;
+        width: 100%;
+        height: auto;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    .container_cardapio {
+        width: 100%;
+        height: auto;
+        padding: 0;
+    }
+
+    #imgCardapio {
+        width: 100%;
+        height: auto;
+    }
+}

@@ -1,0 +1,290 @@
+  /*Página do calendário escolar*/
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+  :root {
+    --white-color: #fff;
+    --red-color: #c42222;
+    --grey-color: #707070;
+    --grey-color-light: #aaa;
+  }
+  
+  body {
+    background-color: #e7f2fd;
+    /*background-color: #edd5d4;*/
+    transition: all 0.5s ease;
+  }
+  
+  #logo_sesi{
+      width: 100px;
+      height: 45px;
+  }
+  
+  
+  /* barra_navegaçao */
+  .barra_navegaçao {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    left: 0;
+    background-color: var(--white-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+    z-index: 1000;
+    box-shadow: 0 0 2px var(--grey-color-light);
+  }
+  .logo_item {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--red-color);
+  }
+  .barra_navegaçao img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+  }
+  
+  .barra_navegaçao_content {
+    display: flex;
+    align-items: center;
+    column-gap: 25px;
+  }
+  .barra_navegaçao_content i {
+    cursor: pointer;
+    font-size: 20px;
+    color: var(--grey-color);
+  }
+  #casa{
+    color: #707070;
+  }
+
+  .conteudo{
+    display: flex;
+    justify-content:center;
+    margin: auto;
+    margin-top: 80px;
+    /*border:1px solid black;*/
+    width: 1525px;
+    height: 640px;
+  }
+
+  .conteudo_primario{
+    /*border: 1px solid rgb(0, 0, 0);*/
+    width: 755px;
+  }
+
+  
+
+  span h2{
+    margin-top: 10px;
+    color:#fff;
+    background-color: #c42222;
+    border-radius: 20px;
+  }
+
+
+  
+
+  /*notas calendario*/
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#addNoteBtn{
+  background-color: #c42222;
+  color: #fff;
+  border: #c42222;
+  height: 25px;
+}
+
+#calendario {
+    margin-bottom: 20px;
+}
+
+h2{
+  text-align: center;
+}
+
+#noteSection {
+    margin-bottom: 20px;
+}
+
+#noteSection input,
+#noteSection textarea,
+#noteSection button {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+#noteSection textarea {
+    height: 100px;
+}
+
+#notesDisplay ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#notesDisplay li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+
+/*Calendario*/
+
+
+.calendario {
+  margin: auto;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #fff;
+  width: 350px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #c42222;
+  color: white;
+}
+
+header button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 16px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  width: 14%;
+  padding: 8px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+th {
+  background-color: #f4f4f4;
+}
+
+td {
+  background-color: #fff;
+}
+
+td:nth-child(7) {
+  background-color: #f9f9f9;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+
+
+
+.delete-btn {
+  background-color: #dc3545; /* Vermelho para o botão de excluir */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background-color: #c82333; /* Tom mais escuro ao passar o mouse */
+}
+
+
+
+
+
+
+
+
+/* Responsivo para max-width de 450px */
+@media (max-width: 450px) {
+  .barra_navegaçao {
+    padding: 10px;
+    display: flex;
+    /*flex-direction: column;
+    align-items: flex-start;*/
+  }
+
+  .barra_navegaçao_content {
+    column-gap: 15px;
+  }
+
+  .conteudo {
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    margin-top: 60px;
+  }
+
+  .conteudo_primario{
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .container {
+    max-width: 100%;
+    padding: 10px;
+  }
+
+  .calendario {
+    width: 100%;
+  }
+
+  table, th, td {
+    font-size: 12px;
+    padding: 5px;
+  }
+
+  header h1 {
+    font-size: 14px;
+  }
+
+  #noteSection textarea {
+    height: 80px;
+  }
+
+  .note {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  
+  
+}
+
+

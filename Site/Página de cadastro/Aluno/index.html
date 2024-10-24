@@ -1,0 +1,53 @@
+<!-- Página de cadastro -->
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tela de Cadastro</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="shortcut icon" href="sesi-logo.png">
+</head>
+<body>
+  <div class="login_formulario">
+    <form id="cadastroForm">
+
+      <div class="logo">
+        <img src="sesi-logo.png" alt="logo sesi" id="logo">
+      </div>
+
+      <div class="input_box">
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" placeholder="Digite seu Nome Completo" required />
+      </div>
+
+      <div class="input_box">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Digite seu Email" required />
+      </div>
+
+      <div class="input_box">
+        <label for="cpf">CPF </label>
+        <input type="text" id="identificacao" placeholder="Digite seu CPF ou Número de Identificação" required />
+      </div>
+
+      <div class="input_box">
+        <label for="senha">Senha</label>
+        <input type="password" id="senha" placeholder="Digite sua Senha" required />
+      </div>
+
+      <div class="input_box">
+        <div class="senha">
+          <label for="confirmar_senha">Confirme sua Senha</label>
+        </div>
+        <input type="password" id="confirmar_senha" placeholder="Digite novamente sua Senha" required />
+      </div>
+
+      <button type="button" onclick="Cadastrar()">Concluir Cadastro</button>
+
+      <h5><a href="../Adm/index.html">Cadastrar como Administrador</a></h5>
+    </form>
+  </div>
+</body>
+<script src="script.js"></script>
+</html>
