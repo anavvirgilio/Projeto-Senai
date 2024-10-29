@@ -1,4 +1,3 @@
-
 // Página do calendário escolar
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -6,6 +5,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const noteTextElement = document.getElementById('noteText');
     const addNoteBtn = document.getElementById('addNoteBtn');
     const notesList = document.getElementById('notesList');
+
+    // Simulação de identificação do usuário (exemplo: ID do usuário após login)
+    //const userId = "usuario123"; // Substitua com o ID real do usuário após login
+    
+    const userId = localStorage.getItem("userId");
+
+    // Carregar notas do localStorage ao iniciar
+    loadNotes(userId);
 
     // Função para adicionar nota
     function addNote() {
@@ -19,21 +26,61 @@ document.addEventListener('DOMContentLoaded', () => {
             const deleteBtn = document.createElement('button');
             deleteBtn.textContent = 'Excluir';
             deleteBtn.style.marginLeft = '10px';
-            deleteBtn.classList.add('delete-btn'); // Estilo opcional
+            deleteBtn.classList.add('delete-btn');
 
             // Adicionar evento ao botão de excluir
             deleteBtn.addEventListener('click', () => {
                 notesList.removeChild(noteItem);
+                saveNotes(userId);
             });
 
             // Adicionar o botão ao item da nota
             noteItem.appendChild(deleteBtn);
             notesList.appendChild(noteItem);
+            
+            // Limpar campos de entrada
             noteDateElement.value = '';
             noteTextElement.value = '';
+
+            // Salvar notas no localStorage
+            saveNotes(userId);
         } else {
             alert('Por favor, preencha a data e a nota.');
         }
+    }
+
+    // Função para salvar notas no localStorage para um usuário específico
+    function saveNotes(userId) {
+        const notes = [];
+        notesList.querySelectorAll('li').forEach(noteItem => {
+            const text = noteItem.firstChild.textContent;
+            notes.push(text);
+        });
+        localStorage.setItem(`notes_${userId}`, JSON.stringify(notes));
+    }
+
+    // Função para carregar notas do localStorage para um usuário específico
+    function loadNotes(userId) {
+        const savedNotes = JSON.parse(localStorage.getItem(`notes_${userId}`)) || [];
+        savedNotes.forEach(note => {
+            const noteItem = document.createElement('li');
+            noteItem.textContent = note;
+
+            // Criar botão de excluir
+            const deleteBtn = document.createElement('button');
+            deleteBtn.textContent = 'Excluir';
+            deleteBtn.style.marginLeft = '10px';
+            deleteBtn.classList.add('delete-btn'); 
+
+            // Adicionar evento ao botão de excluir
+            deleteBtn.addEventListener('click', () => {
+                notesList.removeChild(noteItem);
+                saveNotes(userId);
+            });
+
+            noteItem.appendChild(deleteBtn);
+            notesList.appendChild(noteItem);
+        });
     }
 
     addNoteBtn.addEventListener('click', addNote);
@@ -93,5 +140,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
     renderCalendar(currentDate);
 });
-
-

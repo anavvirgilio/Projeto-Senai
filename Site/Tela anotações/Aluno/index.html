@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <title>Tela de Anotações do aluno</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="sesi-logo.png">
+</head>
+<body>
+
+    <nav class="barra_navegaçao">
+        <div class="logo_item">
+          <img src="sesi-logo.png" alt="Logo Sesi" id="logo_sesi"> Secretaria do Aluno
+        </div>
+        <div class="barra_navegaçao_content">
+          <i class="bi bi-grid"></i>
+          <a href="../../Tela Principal/Aluno/index.html"><i class='bx bxs-home' id="casa"></i></a>
+          <i class='bx bx-user' class="perfil"></i>
+        </div>
+    </nav>
+
+    <span><h1>Aqui você pode fazer anotações para te ajudar no dia a dia</h1></span>
+
+    <div class="conteudo">
+        <div class="criar_nota">
+            <input type="text" id="input_nota" placeholder="Digite sua nota...">
+        </div>
+        <div class="btn_nota">
+            <button id="addNota">Adicionar Nota</button>
+        </div>
+
+        <div id="container_notas"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

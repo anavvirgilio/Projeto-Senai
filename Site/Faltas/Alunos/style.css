@@ -1,0 +1,194 @@
+/* Página de faltas do aluno */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+:root {
+  --white-color: #fff;
+  --red-color: #c42222;
+  --grey-color: #707070;
+  --grey-color-light: #aaa;
+}
+
+body {
+  background-color: #e7f2fd;
+  transition: all 0.5s ease;
+}
+
+#logo_sesi {
+  width: 100px;
+  height: 45px;
+}
+
+/* barra_navegação */
+.barra_navegaçao {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  left: 0;
+  background-color: var(--white-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 30px;
+  z-index: 1000;
+  box-shadow: 0 0 2px var(--grey-color-light);
+}
+
+.logo_item {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--red-color);
+}
+
+.barra_navegaçao img {
+  width: 35px;
+  height: 35px;
+}
+
+.barra_navegaçao_content {
+  display: flex;
+  align-items: center;
+  column-gap: 25px;
+}
+
+.barra_navegaçao_content i {
+  cursor: pointer;
+  font-size: 20px;
+  color: var(--grey-color);
+}
+
+#casa {
+  color: #707070;
+}
+
+.conteudo {
+  margin: auto;
+  margin-top: 80px;
+  width: 100%; /* Mudado para 100% para responsividade */
+  padding: 0 15px; /* Adiciona um pouco de espaço nas laterais */
+}
+
+/* calendário com as faltas */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+  text-align: center;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+#month-selector {
+  margin-right: 10px;
+}
+
+#year-selector {
+  width: 70px;
+  margin-right: 10px;
+}
+
+#calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.day {
+  background: #eaeaea;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.day:hover {
+  background: #d1d1d1;
+}
+
+h1 {
+  margin-bottom: 10px;
+  color: #c42222;
+}
+
+.aula {
+  background: #4CAF50;
+  color: white;
+  margin: 2px 0;
+  padding: 5px;
+  border-radius: 4px;
+}
+
+.aula.selected {
+  background: #c42222; /* Cor para as aulas selecionadas */
+}
+
+.selected-days {
+  margin-top: 20px;
+  padding: 10px;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.selected-info {
+  margin-top: 20px;
+  font-size: 1.2em;
+}
+
+/* Media Queries para responsividade */
+@media (max-width: 450px) {
+  .barra_navegaçao {
+      padding: 10px 15px;
+  }
+
+  .logo_item {
+      font-size: 18px;
+  }
+
+  .barra_navegaçao_content i {
+      font-size: 18px;
+  }
+
+  .container {
+      width: 100%; /* Para telas menores, ocupar 100% */
+      padding: 15px; /* Reduzindo o padding */
+  }
+
+  .controls {
+      flex-direction: column; /* Coloca os controles em coluna */
+      align-items: center; /* Centraliza os controles */
+  }
+
+  #month-selector,
+  #year-selector {
+      width: 100%; /* Para melhor visualização */
+      margin: 5px 0; /* Adiciona espaço entre os controles */
+  }
+}

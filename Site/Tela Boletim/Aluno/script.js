@@ -1,16 +1,26 @@
-// Simulação de recebimento do cardápio
+// Boletim aluno
+
+
 document.addEventListener('DOMContentLoaded', function() {
     const imgBoletim = document.getElementById('imgBoletim');
     const message = document.getElementById('message');
+    const fetchBoletimButton = document.getElementById('fetchBoletimButton');
+    const studentIdInput = document.getElementById('studentId');
 
-    // Aqui você pode definir a imagem do cardápio
-    const boletimImage = 'caminho/para/imagem_do_boletim.jpg'; // Altere para a URL real da imagem
+    fetchBoletimButton.addEventListener('click', function() {
+        const studentId = studentIdInput.value;
+        let boletins = JSON.parse(localStorage.getItem('boletins')) || {};
+        const boletimImage = boletins[studentId];
 
-    if (boletimImage) {
-        imgBoletim.src = boletimImage;
-        imgBoletim.hidden = false;
-        message.classList.add('hidden');
-    } else {
-        message.classList.remove('hidden');
-    }
+        if (boletimImage) {
+            imgBoletim.src = boletimImage;
+            imgBoletim.hidden = false;
+            message.classList.add('hidden');
+        } else {
+            message.classList.remove('hidden');
+            message.textContent = "Boletim não encontrado para o ID informado.";
+        }
+    });
 });
+
+

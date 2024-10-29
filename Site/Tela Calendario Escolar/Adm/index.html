@@ -1,0 +1,76 @@
+<!--Página dp calendário escolar-->
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <title>Tela do Calendário Escolar</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="sesi-logo.png">
+</head>
+<body>
+
+    <nav class="barra_navegaçao">
+        <div class="logo_item">
+            
+          <img src="sesi-logo.png" alt="" id="logo_sesi"></i>Secretaria do Aluno
+        </div>
+
+  
+        <div class="barra_navegaçao_content">
+          <i class="bi bi-grid"></i>
+          <a href="../../Tela Principal/Adm/index.html"><i class='bx bxs-home' id="casa"></i></a>
+          <i class='bx bx-user'class="perfil"></i>
+        </div>
+      </nav>
+
+      <div class="conteudo">
+
+        <div class="conteudo_primario">
+          <div class="calendario">
+            <header>
+                <button id="mesAnterior">&lt;</button>
+                <h1 id="mesAno"></h1>
+                <button id="proximoMes">&gt;</button>
+            </header>
+            <table id="calendarTable">
+                <thead>
+                    <tr>
+                        <th>Dom</th>
+                        <th>Seg</th>
+                        <th>Ter</th>
+                        <th>Qua</th>
+                        <th>Qui</th>
+                        <th>Sex</th>
+                        <th>Sab</th>
+                    </tr>
+                </thead>
+                <tbody id="calendarBody">
+                    <!-- Dias serão gerados aqui -->
+                </tbody>
+            </table>
+          </div>
+          <br></br>
+          <div class="container">
+            <div id="noteSection">
+                <h2>Adicionar Lembrete</h2>
+                <input type="date" id="noteDate" />
+                <textarea id="noteText" placeholder="Digite sua nota aqui..."></textarea>
+                <button id="addNoteBtn">Adicionar Lembrete</button>
+            </div>
+            <div id="notesDisplay">
+                <h2>Lembretes</h2>
+                <ul id="notesList"></ul>
+            </div>
+          </div>
+        </div>
+
+    
+
+      </div>
+    
+</body>
+    <script src="script.js"></script>
+</html>
