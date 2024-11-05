@@ -1,41 +1,39 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tela de login</title>
-  <link rel="stylesheet" href="style.css"/>
-  <link rel="shortcut icon" href="sesi-logo.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <title>Tela de Anotações do aluno</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="sesi-logo.png">
 </head>
 <body>
-  <div class="login_formulario">
-    <!--<form action="https://fjiwbrhjnmpuyhskhrlt.supabase.co/rest/v1/adm" method="POST"></form>-->
 
-      <div class="logo">
-        <img src="sesi-logo.png" alt="logo sesi" id="logo">
-      </div>
+    <nav class="barra_navegaçao">
+        <div class="logo_item">
+          <img src="sesi-logo.png" alt="Logo Sesi" id="logo_sesi"> Secretaria do Aluno
+        </div>
+        <div class="barra_navegaçao_content">
+          <i class="bi bi-grid"></i>
+          <a href="../../Tela Principal/Adm/index.html"><i class='bx bxs-home' id="casa"></i></a>
+          <i class='bx bx-user' class="perfil"></i>
+        </div>
+    </nav>
 
+    <span><h1>Aqui você pode fazer anotações para te ajudar no dia a dia</h1></span>
 
-      
-      <div class="input_box">
-        <label for="email">N° Identificação</label>
-        <input type="text" id="email" placeholder="Digite seu CPF" required />
-      </div>
-
-    
-      <div class="input_box">
-        <div class="senha">
-          <label for="password">Senha</label>
-          <a href="file:///C:/Users/Ana%20V%20Virgilio/Desktop/Projeto%20Final%20SENAI/Site/Tela%20de%20email%20(recuperar%20senha)/index.html">Esqueceu sua senha?</a>
+    <div class="conteudo">
+        <div class="criar_nota">
+            <input type="text" id="input_nota" placeholder="Digite sua nota...">
+        </div>
+        <div class="btn_nota">
+            <button id="addNota">Adicionar Nota</button>
         </div>
 
-        <input type="password" id="texto_senha" placeholder="Digite sua senha" required />
-      </div>
+        <div id="container_notas"></div>
+    </div>
 
-      <button type="submit">Entrar</button>
-      <a href="#"><h5>Ainda não possui uma conta? cadastre-se</h5></a>
-    </form>
-  </div>
+    <script src="script.js"></script>
 </body>
-  <script src="script.js"></script>
 </html>

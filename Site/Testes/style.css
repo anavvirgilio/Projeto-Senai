@@ -1,121 +1,171 @@
-/*Página de login*/
-
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Montserrat", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+:root {
+  --white-color: #fff;
+  --red-color: #c42222;
+  --grey-color: #707070;
+  --grey-color-light: #aaa;
+  --black-color: #000000;
 }
 
 body {
-    width: 100%;
-    min-height: 100vh;
-    padding: 0 10px;
-    display: flex;
-    /*background: #c42222;*/
-    justify-content: center;
-    align-items: center;
+  background-color: #edd5d4;
+  transition: all 0.5s ease;
 }
 
-#logo{
-    width: 200px;
-    height: 85px;
+#logo_sesi {
+  width: 70px; /* Reduzido */
+  height: auto; /* Manter a proporção */
 }
 
-.logo{
-    display: flex;
-    justify-content: center;
+.barra_navegaçao {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  left: 0;
+  background-color: var(--white-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px; /* Reduzido */
+  z-index: 1000;
+  box-shadow: 0 0 2px var(--grey-color-light);
 }
 
-
-.login_formulario {
-    width: 100%;
-    max-width: 435px;
-    background: #fff;
-    border-radius: 6px;
-    padding: 41px 30px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+.logo_item {
+  display: flex;
+  align-items: center;
+  column-gap: 5px; /* Mantido */
+  font-size: 16px; /* Reduzido */
+  font-weight: 500;
+  color: var(--red-color);
 }
 
-.login_formulario h3 {
-    font-size: 20px;
-    text-align: center;
+.barra_navegaçao_content {
+  display: flex;
+  align-items: center;
+  column-gap: 10px; /* Reduzido */
 }
 
-
-
-.login_formulario p {
-    text-align: center;
-    font-weight: 500;
+.conteudo {
+  margin: auto;
+  margin-top: 70px; /* Ajustado */
+  width: 90%; /* Mantido */
+  max-width: 500px; /* Limite reduzido */
+  background-color: #fff;
+  padding: 15px; /* Reduzido */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-
-
-form .input_box label {
-    display: block;
-    font-weight: 500;
-    margin-bottom: 8px;
+h1 {
+  font-size: 1.2em; /* Reduzido */
+  text-align: center;
+  color: #fff;
+  background-color: #c42222;
+  padding: 10px; /* Reduzido */
+  border-radius: 5px;
 }
 
-
-form .input_box input {
-    width: 100%;
-    height: 57px;
-    border: 1px solid #e84d4db1;
-    border-radius: 5px;
-    outline: none;
-    background: #F8F8FB;
-    font-size: 17px;
-    padding: 0px 20px;
-    margin-bottom: 25px;
-    transition: 0.2s ease;
+.criar_nota {
+  margin: 15px 0; /* Reduzido */
 }
 
-form .input_box input:focus {
-    border-color: #c42222;
+#input_nota {
+  height: 35px; /* Reduzido */
+  width: 100%;
+  border-radius: 25px;
+  font-size: 0.9em; /* Reduzido */
+  outline: none;
+  background-color: var(--white-color);
+  color: var(--grey-color);
+  border: 2px solid var(--grey-color-light);
+  padding: 0 15px; /* Mantido */
 }
 
-form .input_box .senha {
-    display: flex;
-    justify-content: space-between;
-    text-align: center;
+.btn_nota {
+  width: 100%; /* Mantido */
+  margin: 8px auto; /* Reduzido */
 }
 
-form .input_box {
-    position: relative;
+#addNota {
+  height: 35px; /* Reduzido */
+  width: 100%;
+  border-radius: 25px;
+  font-size: 0.9em; /* Reduzido */
+  outline: none;
+  background-color: var(--red-color);
+  color: var(--white-color);
+  border: none;
+  transition: background-color 0.3s;
 }
 
-a {
-    text-decoration: none;
-    color: #c42222;
-    font-weight: 500;
+#addNota:hover {
+  background-color: darkred;
 }
 
-a:hover {
-    text-decoration: underline;
+#container_notas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Centraliza as notas */
+  margin-top: 15px; /* Reduzido */
 }
 
-form button {
-    width: 100%;
-    height: 56px;
-    border-radius: 5px;
-    border: none;
-    outline: none;
-    background: #c42222;
-    color: #fff;
-    font-size: 18px;
-    font-weight: 500;
-    text-transform: uppercase;
-    cursor: pointer;
-    margin-bottom: 28px;
-    transition: 0.3s ease;
+.note {
+  text-align: center;
+  margin: 5px; /* Reduzido */
+  border-radius: 15px;
+  background-color: rgb(234, 237, 239);
+  width: 90%; /* Mantido */
+  max-width: 180px; /* Limite reduzido */
+  padding: 10px; /* Reduzido */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+  transition: transform 0.3s;
 }
 
-form button:hover {
-    background: #c42222;
+.note:hover {
+  transform: scale(1.02);
 }
 
+.delete-btn {
+  background-color: #c42222;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 5px 8px; /* Reduzido */
+  position: absolute;
+  top: 8px; /* Reduzido */
+  right: 8px; /* Reduzido */
+  transition: background-color 0.3s;
+}
 
-h5{
-    text-align: center;
+.delete-btn:hover {
+  background-color: darkred;
+}
+
+/* Media Queries para telas menores */
+@media (max-width: 768px) {
+  .barra_navegaçao {
+    flex-direction: column; /* Coloca logo e ícones em coluna */
+    align-items: flex-start;
+  }
+
+  .logo_item {
+    font-size: 14px; /* Reduzido */
+  }
+
+  h1 {
+    font-size: 1.1em; /* Reduzido */
+  }
+
+  .conteudo {
+    width: 95%; /* Mantido */
+  }
 }

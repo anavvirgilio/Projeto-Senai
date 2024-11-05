@@ -147,3 +147,23 @@ h1 {
 .delete-btn:hover {
   background-color: darkred;
 }
+
+/* Media Queries para telas menores */
+@media (max-width: 768px) {
+  .barra_navegaçao {
+    flex-direction: column; /* Coloca logo e ícones em coluna */
+    align-items: flex-start;
+  }
+
+  .logo_item {
+    font-size: 14px; /* Reduzido */
+  }
+
+  h1 {
+    font-size: 1.1em; /* Reduzido */
+  }
+
+  .conteudo {
+    width: 95%; /* Mantido */
+  }
+}

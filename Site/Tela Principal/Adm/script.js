@@ -1,5 +1,5 @@
-const body = document.querySelector("body");
-const luz_negra = document.querySelector("#luz_negra");
+/*const body = document.querySelector("body");
+const luz_negra = document.querySelector("#luz_negra");*/
 const searchInput = document.querySelector(".barra_pesquisa input");
 const searchButton = document.querySelector("#btn_pesquisa");
 const conteudos = document.querySelectorAll(".conteudo");
@@ -28,14 +28,21 @@ searchButton.addEventListener("click", filterItems);
 // Adicionando evento de keyup para pesquisa em tempo real
 searchInput.addEventListener("keyup", filterItems);
 
-luz_negra.addEventListener("click", () => {
+const sairButton = document.querySelector("#sairButton");
+
+
+sairButton.addEventListener("click", () => {
+    window.location.href ="../../Tela de login/Aluno/index.html"; // Substitua pelo URL da página para onde você deseja redirecionar
+});
+
+/*luz_negra.addEventListener("click", () => {
   body.classList.toggle("escuro");
   if (body.classList.contains("escuro")) {
     luz_negra.classList.replace("bx-sun", "bx-moon");
   } else {
     luz_negra.classList.replace("bx-moon", "bx-sun");
   }
-});
+});*/
 
 
 

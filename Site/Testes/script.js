@@ -1,43 +1,83 @@
-document.querySelector('button[type="submit"]').addEventListener('click', async function(event) {
-  event.preventDefault();
+// Página de anotações do adm
 
-  // Captura os valores dos campos de input
-  const cpf = document.getElementById('email').value;
-  const senha = document.getElementById('texto_senha').value;
 
-  // Verifica se os campos estão preenchidos
-  if (!cpf || !senha) {
-    alert('Por favor, preencha todos os campos.');
-    return;
+document.addEventListener('DOMContentLoaded', () => {
+  const input_nota = document.getElementById('input_nota');
+  const addNota = document.getElementById('addNota');
+  const container_notas = document.getElementById('container_notas');
+
+  // Simulação de ID de usuário após o login
+  const userId = localStorage.getItem("userId") || "usuario123"; // Substitua com o ID real após login
+  localStorage.setItem("userId", userId); // Armazenar o ID do usuário
+
+  // Carregar notas ao iniciar
+  loadNotes(userId);
+
+  // Função para criar uma nova nota
+  function createNoteElement(text) {
+      const noteElement = document.createElement('div');
+      noteElement.classList.add('note');
+      noteElement.innerHTML = `
+          <span id="texto_nota">${text}</span>
+          <button class="delete-btn">X</button>
+      `;
+      return noteElement;
   }
 
-  try {
-    // URL da API Supabase com a consulta para verificar o CPF e a senha
-    const url = "https://fjiwbrhjnmpuyhskhrlt.supabase.co/rest/v1/alunos?cpf=eq." + cpf + "&select=*&senha=eq."+senha;
+  // Função para adicionar uma nova nota
+  function addNote() {
+      const text = input_nota.value.trim();
+      if (text) {
+          const noteElement = createNoteElement(text);
+          container_notas.appendChild(noteElement);
+          noteElement.classList.add('fade-in'); // Adiciona a classe de animação
+          input_nota.value = '';
 
-    // Configuração da requisição
-    const response = await fetch(url, {
-      method: 'get',
-      headers: {
-        apikey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZqaXdicmhqbm1wdXloc2tocmx0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjU1NDU0MTIsImV4cCI6MjA0MTEyMTQxMn0.9UQuIGBNUZD2UUCQEFpsT0Lpps3Q2Pr1w3_FiL9RfEI', // Coloque sua chave de API do Supabase
-        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZqaXdicmhqbm1wdXloc2tocmx0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjU1NDU0MTIsImV4cCI6MjA0MTEyMTQxMn0.9UQuIGBNUZD2UUCQEFpsT0Lpps3Q2Pr1w3_FiL9RfEI', // Coloque seu token de autorização
-        'Content-Type': 'application/json'
+          // Salvar nota no localStorage
+          saveNote(userId, text);
       }
-    });
+  }
 
-    const data = await response.json();
+  // Função para salvar notas no localStorage
+  function saveNote(userId, note) {
+      const existingNotes = JSON.parse(localStorage.getItem(`notes_${userId}`)) || [];
+      existingNotes.push(note);
+      localStorage.setItem(`notes_${userId}`, JSON.stringify(existingNotes));
+  }
 
-    // Verifica se a resposta contém algum resultado (login válido)
-    if (data.length > 0) {
-      alert('Login realizado com sucesso!');
-      // Redirecionar para outra página, se necessário
-      window.location.href = 'index2.html'; // Altere para a página desejada
-    } else {
-      alert('CPF ou senha incorretos.');
-    }
+  // Função para carregar notas do localStorage
+  function loadNotes(userId) {
+      const savedNotes = JSON.parse(localStorage.getItem(`notes_${userId}`)) || [];
+      savedNotes.forEach(note => {
+          const noteElement = createNoteElement(note);
+          container_notas.appendChild(noteElement);
+      });
+  }
 
-  } catch (error) {
-    console.error('Erro ao realizar login:', error);
-    alert('Ocorreu um erro ao tentar realizar o login. Tente novamente mais tarde.');
+  // Adiciona uma nota ao clicar no botão
+  addNota.addEventListener('click', addNote);
+
+  // Adiciona uma nota ao pressionar Enter
+  input_nota.addEventListener('keypress', (event) => {
+      if (event.key === 'Enter') {
+          addNote();
+      }
+  });
+
+  // Remove a nota ao clicar no botão de excluir
+  container_notas.addEventListener('click', (event) => {
+      if (event.target.classList.contains('delete-btn')) {
+          const noteText = event.target.previousElementSibling.textContent;
+          event.target.parentElement.remove();
+          removeNoteFromStorage(userId, noteText); // Remove nota do localStorage
+      }
+  });
+
+  // Função para remover nota do localStorage
+  function removeNoteFromStorage(userId, noteText) {
+      const existingNotes = JSON.parse(localStorage.getItem(`notes_${userId}`)) || [];
+      const updatedNotes = existingNotes.filter(note => note !== noteText);
+      localStorage.setItem(`notes_${userId}`, JSON.stringify(updatedNotes));
   }
 });
+

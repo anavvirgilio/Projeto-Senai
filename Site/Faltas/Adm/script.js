@@ -1,4 +1,6 @@
-// Faltas do Adm
+// Faltas do Aluno
+
+alert("Atenção: antes de adicionar suas faltas aperte o botão carregar calendário");
 
 const calendarElement = document.getElementById('calendar');
 const selectedDaysElement = document.getElementById('selected-days');
@@ -90,7 +92,10 @@ function createCalendar(month, year) {
 }
 
 function updateSelectedDays() {
-    selectedDaysElement.innerHTML = '<h2>Dias Selecionados:</h2>' + selectedEntries.map(entry => `<p>${entry}</p>`).join('');
+    selectedDaysElement.innerHTML = '<h2>Dias Selecionados:</h2>' +
+        selectedEntries.map(entry => `
+            <p>${entry} <button class="delete-falta-btn" onclick="deleteEntry('${entry}')">Excluir</button></p>
+        `).join('');
 }
 
 function displaySelectedInfo(day, month, year) {
@@ -105,6 +110,23 @@ function saveEntriesToLocalStorage(entry) {
     localStorage.setItem(userId, JSON.stringify(entries));
 }
 
+// Função para excluir uma entrada de falta
+function deleteEntry(entry) {
+    // Remove do array de entradas selecionadas
+    const index = selectedEntries.indexOf(entry);
+    if (index > -1) {
+        selectedEntries.splice(index, 1);
+    }
+
+    // Atualiza o localStorage
+    const entries = JSON.parse(localStorage.getItem(userId)) || [];
+    const updatedEntries = entries.filter(e => e !== entry);
+    localStorage.setItem(userId, JSON.stringify(updatedEntries));
+
+    // Atualiza a exibição dos dias selecionados
+    updateSelectedDays();
+}
+
 // Carrega o calendário quando o botão é clicado
 loadCalendarButton.onclick = () => {
     const month = parseInt(monthSelector.value);
@@ -117,83 +139,3 @@ monthSelector.value = new Date().getMonth();
 yearSelector.value = currentYear;
 createCalendar(monthSelector.value, yearSelector.value);
 loadEntries(); // Carrega as entradas ao iniciar
-
-
-document.addEventListener('DOMContentLoaded', () => {
-    const input_nota = document.getElementById('input_nota');
-    const addNota = document.getElementById('addNota');
-    const container_notas = document.getElementById('container_notas');
-
-    const userId = 'usuario_logado'; // Substitua pelo ID do usuário logado
-
-    // Carrega as notas do localStorage
-    function loadNotes() {
-        const notes = JSON.parse(localStorage.getItem(userId)) || [];
-        notes.forEach(note => {
-            const noteElement = createNoteElement(note);
-            container_notas.appendChild(noteElement);
-        });
-    }
-
-    // Função para criar uma nova nota
-    function createNoteElement(text) {
-        const noteElement = document.createElement('div');
-        noteElement.classList.add('note');
-        noteElement.innerHTML = `
-            <span id="texto_nota">${text}</span>
-            <button class="delete-btn">X</button>
-        `;
-        return noteElement;
-    }
-
-    // Função para adicionar uma nova nota
-    function addNote() {
-        const text = input_nota.value.trim();
-        if (text) {
-            const noteElement = createNoteElement(text);
-            container_notas.appendChild(noteElement);
-            noteElement.classList.add('fade-in'); // Adiciona a classe de animação
-            input_nota.value = '';
-
-            // Salva a nota no localStorage
-            saveNoteToLocalStorage(text);
-        }
-    }
-
-    // Função para salvar a nota no localStorage
-    function saveNoteToLocalStorage(note) {
-        const notes = JSON.parse(localStorage.getItem(userId)) || [];
-        notes.push(note);
-        localStorage.setItem(userId, JSON.stringify(notes));
-    }
-
-    // Adiciona uma nota ao clicar no botão
-    addNota.addEventListener('click', addNote);
-
-    // Adiciona uma nota ao pressionar Enter
-    input_nota.addEventListener('keypress', (event) => {
-        if (event.key === 'Enter') {
-            addNote();
-        }
-    });
-
-    // Remove a nota ao clicar no botão de excluir
-    container_notas.addEventListener('click', (event) => {
-        if (event.target.classList.contains('delete-btn')) {
-            const noteElement = event.target.parentElement;
-            const noteText = noteElement.querySelector('#texto_nota').textContent;
-            removeNoteFromLocalStorage(noteText); // Remove do localStorage
-            noteElement.remove();
-        }
-    });
-
-    // Função para remover a nota do localStorage
-    function removeNoteFromLocalStorage(note) {
-        let notes = JSON.parse(localStorage.getItem(userId)) || [];
-        notes = notes.filter(n => n !== note);
-        localStorage.setItem(userId, JSON.stringify(notes));
-    }
-
-    // Carrega as notas quando a página é carregada
-    loadNotes();
-});

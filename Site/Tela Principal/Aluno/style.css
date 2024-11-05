@@ -257,404 +257,106 @@ a{
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-/*RESPONSIVIDADE*/
-
-@media(max-width: 450px){
-  
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-  }
-  
-  :root {
-    --white-color: #fff;
-    --red-color: #c42222;
-    --grey-color: #707070;
-    --grey-color-light: #aaa;
-  }
-  
-  body {
-    background-color: #e7f2fd;
-    transition: all 0.5s ease;
-  }
-  
-  #logo_sesi {
-    width: 100px;
-    height: 45px;
-  }
-  
-  body.escuro {
-    background-color: #333;
-  }
-  
-  body.escuro {
-    --white-color: #333;
-    --red-color: #c42222;
-    --grey-color: #f2f2f2;
-    --grey-color-light: #aaa;
-  }
-  
-  /* barra_navegação */
+/* Media Query para telas com no máximo 450px de largura */
+@media (max-width: 450px) {
   .barra_navegaçao {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    left: 0;
-    background-color: var(--white-color);
-    display: flex;
+    padding: 8px;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    padding: 15px 30px;
-    z-index: 1000;
-    box-shadow: 0 0 2px var(--grey-color-light);
+    justify-content: center;
   }
-  
-  .logo_item {
-    display: flex;
-    align-items: center;
-    column-gap: 10px;
-    font-size: 22px;
-    font-weight: 500;
-    color: var(--red-color);
+
+
+  .barra_navegaçao .logo_item {
+    font-size: 18px;
   }
-  
-  .barra_navegaçao img {
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-  }
-  
+
   .barra_pesquisa {
-    height: 47px;
-    max-width: 430px;
-    width: 100%;
+    max-width: 60%;
+    height: 30px;
   }
-  
+
   .barra_pesquisa input {
-    height: 100%;
-    width: 100%;
-    border-radius: 25px;
-    font-size: 18px;
-    outline: none;
-    background-color: var(--white-color);
-    color: var(--grey-color);
-    border: 1px solid var(--grey-color-light);
-    padding: 0 20px;
+    font-size: 16px;
+    padding: 0 5px;
   }
-  
-  .barra_navegaçao_content {
-    display: flex;
-    align-items: center;
-    column-gap: 25px;
-  }
-  
-  .barra_navegaçao_content i {
-    margin-top: 5px;
-    cursor: pointer;
-    font-size: 20px;
-    color: var(--grey-color);
-  }
-  
-  /* barra_lateral */
+
   .barra_lateral {
-    background-color: var(--white-color);
-    width: 260px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    padding: 80px 20px;
-    z-index: 100;
-    overflow-y: scroll;
-    box-shadow: 0 0 1px var(--grey-color-light);
-    transition: all 0.5s ease;
+    width: 125px;
+    padding: 55px 1px;
   }
-  
-  .barra_lateral::-webkit-scrollbar {
-    display: none;
+
+  #sairButton{
+      margin-right: 50px;
   }
-  
-  .menu_conteudo {
-    position: relative;
-  }
-  
+
   .menu_titulo {
-    margin: 15px 0;
-    padding: 0 20px;
-    font-size: 18px;
+    font-size: 16px;
   }
-  
-  .barra_lateral.fechar .menu_titulo {
-    padding: 6px 30px;
-  }
-  
-  .menu_titulo::before {
-    color: var(--grey-color);
-    white-space: nowrap;
-  }
-  
+
   .menu_itens {
     padding: 0;
-    list-style: none;
   }
-  
+
   .link_navegaçao_icone {
-    position: relative;
-    font-size: 22px;
-    min-width: 50px;
-    line-height: 40px;
-    display: inline-block;
-    text-align: center;
-    border-radius: 6px;
+    font-size: 13px;
+    min-width: auto;
   }
-  
-  .link_navegaçao_icone::before {
-    content: "";
-    position: absolute;
-    height: 100%;
-    width: calc(100% + 100px);
-    left: -20px;
+
+  .link_nav {
+    font-size: 10px;
+    padding: 4px;
   }
-  
-  .link_navegaçao_icone:hover {
-    background: var(--red-color);
-  }
-  
-  .barra_lateral .link_nav {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    padding: 4px 15px;
-    border-radius: 8px;
-    text-decoration: none;
-    color: var(--grey-color);
-    white-space: nowrap;
-  }
-  
-  .link_nav:hover {
-    color: var(--white-color);
-    background: var(--red-color);
-  }
-  
-  .submenu_item {
-    cursor: pointer;
-  }
-  
-  .submenu {
-    display: none;
-  }
-  
-  .submenu_item .arrow-left {
-    position: absolute;
-    right: 10px;
-    display: inline-block;
-    margin-right: auto;
-  }
-  
-  .barra_lateral.fechar .submenu {
-    display: none;
-  }
-  
-  .show_submenu ~ .submenu {
-    display: block;
-  }
-  
-  .show_submenu .arrow-left {
-    transform: rotate(90deg);
-  }
-  
-  .submenu .sublink {
-    padding: 15px 15px 15px 52px;
-  }
-  
+
   .conteudo_inferior {
-    position: fixed;
-    bottom: 60px;
-    left: 0;
-    width: 260px;
-    cursor: pointer;
-    transition: all 0.5s ease;
+    width: 125px;
   }
-  
+
   .bottom {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    left: 0;
-    justify-content: space-around;
-    padding: 18px 0;
-    text-align: center;
-    width: 100%;
-    color: var(--grey-color);
-    border-top: 1px solid var(--grey-color-light);
-    background-color: var(--white-color);
+    padding: 12px 0;
   }
-  
-  .bottom i {
-    font-size: 20px;
-  }
-  
-  .bottom span {
-    font-size: 18px;
-  }
-  
+
   .tela_principal {
-    margin-top: 90px;
-    margin-left: 265px;
-    width: 1245px;
-    height: 870px;
+    margin-top: 110px;
+    margin-left: 83px;
+    width: calc(100% - 20px); /* Ajusta a largura da tela principal */
+    height: auto; /* Ajusta a altura para ser flexível */
   }
-  
+
   .caixa_conteudos {
-    display: flex;
-    margin: auto;
-    width: 1240px;
-    height: 410px;
+    flex-direction: column; /* Alinha os itens em coluna para melhor adaptação */
+    width: calc(80% - 10px); /* Ajusta a largura */
+    height: auto; /* Ajusta a altura */
   }
-  
+
   .conteudo {
-    margin: auto;
-    border: 1px solid #aaa;
-    background-color: white;
-    width: 363px;
-    height: 390px;
-    border-radius: 10px;
+    width: calc(100% - 20px); /* Ajusta a largura para caber na tela */
+    height: auto; /* Ajusta a altura para se adaptar ao conteúdo */
+    margin: 10px 0; /* Ajusta o margin para espaço em colunas */
   }
-  
+
   .img_conteudo {
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    margin: auto;
-    height: 250px;
-    width: 363px;
+    width: 100%; /* Faz a imagem ocupar toda a largura do contêiner */
+    height: auto; /* Mantém a proporção da imagem */
   }
-  
+
   h2 {
-    margin-top: 5px;
-    color: #c42222;
-    text-align: center;
+    font-size: 15px; /* Ajusta o tamanho da fonte */
   }
-  
+
   h3 {
-    margin-top: 10px;
-    color: #707070;
-    text-align: center;
-    font-family: "Poppins", sans-serif;
+    font-size: 13px; /* Ajusta o tamanho da fonte */
   }
-  
+
   a {
-    text-decoration: none;
+    font-size: 13px; /* Ajusta o tamanho da fonte dos links */
   }
-  
-  /* Media Query para telas com no máximo 450px de largura */
-  @media (max-width: 450px) {
-    .barra_navegaçao {
-      padding: 8px;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
 
-  
-    .barra_navegaçao .logo_item {
-      font-size: 18px;
-    }
-  
-    .barra_pesquisa {
-      max-width: 100%;
-    }
-  
-    .barra_pesquisa input {
-      font-size: 16px;
-      padding: 0 10px;
-    }
-  
-    .barra_lateral {
-      width: 125px;
-      padding: 55px 1px;
-    }
-  
-    .menu_titulo {
-      font-size: 16px;
-    }
-  
-    .menu_itens {
-      padding: 0;
-    }
-  
-    .link_navegaçao_icone {
-      font-size: 13px;
-      min-width: auto;
-    }
-  
-    .link_nav {
-      font-size: 10px;
-      padding: 4px;
-    }
-  
-    .conteudo_inferior {
-      width: 125px;
-    }
-  
-    .bottom {
-      padding: 12px 0;
-    }
-
-    .tela_principal {
-      margin-top: 110px;
-      margin-left: 83px;
-      width: calc(100% - 20px); /* Ajusta a largura da tela principal */
-      height: auto; /* Ajusta a altura para ser flexível */
-    }
-  
-    .caixa_conteudos {
-      flex-direction: column; /* Alinha os itens em coluna para melhor adaptação */
-      width: calc(80% - 10px); /* Ajusta a largura */
-      height: auto; /* Ajusta a altura */
-    }
-  
-    .conteudo {
-      width: calc(100% - 20px); /* Ajusta a largura para caber na tela */
-      height: auto; /* Ajusta a altura para se adaptar ao conteúdo */
-      margin: 10px 0; /* Ajusta o margin para espaço em colunas */
-    }
-  
-    .img_conteudo {
-      width: 100%; /* Faz a imagem ocupar toda a largura do contêiner */
-      height: auto; /* Mantém a proporção da imagem */
-    }
-  
-    h2 {
-      font-size: 15px; /* Ajusta o tamanho da fonte */
-    }
-  
-    h3 {
-      font-size: 13px; /* Ajusta o tamanho da fonte */
-    }
-  
-    a {
-      font-size: 13px; /* Ajusta o tamanho da fonte dos links */
-    }
-  
- 
-  }
 
 }
-  
+
+
+
 
 
 

@@ -575,17 +575,22 @@ a{
     }
   
     .barra_pesquisa {
-      max-width: 100%;
+      max-width: 60%;
+      height: 30px;
     }
   
     .barra_pesquisa input {
       font-size: 16px;
-      padding: 0 10px;
+      padding: 0 5px;
     }
   
     .barra_lateral {
       width: 125px;
       padding: 55px 1px;
+    }
+
+    #sairButton{
+        margin-right: 50px;
     }
   
     .menu_titulo {

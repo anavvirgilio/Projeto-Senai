@@ -1,5 +1,4 @@
-/* Página de faltas do aluno */
-
+/* Estilos gerais */
 * {
   margin: 0;
   padding: 0;
@@ -19,12 +18,7 @@ body {
   transition: all 0.5s ease;
 }
 
-#logo_sesi {
-  width: 100px;
-  height: 45px;
-}
-
-/* barra_navegação */
+/* Barra de Navegação */
 .barra_navegaçao {
   position: fixed;
   top: 0;
@@ -34,7 +28,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 15px 30px;
+  padding: 10px 20px;
   z-index: 1000;
   box-shadow: 0 0 2px var(--grey-color-light);
 }
@@ -42,52 +36,39 @@ body {
 .logo_item {
   display: flex;
   align-items: center;
-  column-gap: 10px;
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 500;
   color: var(--red-color);
-}
-
-.barra_navegaçao img {
-  width: 35px;
-  height: 35px;
 }
 
 .barra_navegaçao_content {
   display: flex;
   align-items: center;
-  column-gap: 25px;
+  gap: 20px;
 }
 
 .barra_navegaçao_content i {
-  cursor: pointer;
-  font-size: 20px;
+  font-size: 18px;
   color: var(--grey-color);
 }
 
-#casa {
-  color: #707070;
+#logo_sesi {
+  width: 80px;
+  height: 35px;
 }
 
 .conteudo {
   margin: auto;
-  margin-top: 80px;
-  width: 100%; /* Mudado para 100% para responsividade */
-  padding: 0 15px; /* Adiciona um pouco de espaço nas laterais */
+  margin-top: 60px;
+  width: 100%;
+  padding: 10px;
 }
 
-/* calendário com as faltas */
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  margin: 0;
-  padding: 20px;
-}
-
+/* Container e Conteúdo Principal */
 .container {
   max-width: 800px;
   margin: auto;
-  padding: 20px;
+  padding: 15px;
   background: white;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
@@ -95,21 +76,22 @@ body {
 
 h1 {
   text-align: center;
+  color: #c42222;
+  font-size: 1.6em;
+  margin-bottom: 10px;
 }
 
 .controls {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
   margin-bottom: 20px;
 }
 
-#month-selector {
-  margin-right: 10px;
-}
-
-#year-selector {
-  width: 70px;
-  margin-right: 10px;
+#month-selector, #year-selector {
+  padding: 5px;
+  font-size: 1em;
 }
 
 #calendar {
@@ -124,7 +106,6 @@ h1 {
   padding: 10px;
   border-radius: 5px;
   text-align: center;
-  position: relative;
   cursor: pointer;
 }
 
@@ -132,63 +113,88 @@ h1 {
   background: #d1d1d1;
 }
 
-h1 {
-  margin-bottom: 10px;
-  color: #c42222;
-}
-
 .aula {
   background: #4CAF50;
   color: white;
   margin: 2px 0;
-  padding: 5px;
+  padding: 4px;
   border-radius: 4px;
 }
 
 .aula.selected {
-  background: #c42222; /* Cor para as aulas selecionadas */
+  background: #c42222;
 }
 
-.selected-days {
-  margin-top: 20px;
+.selected-days, .selected-info {
+  margin-top: 15px;
   padding: 10px;
   background: #f9f9f9;
-  border: 1px solid #ddd;
   border-radius: 5px;
 }
 
-.selected-info {
-  margin-top: 20px;
-  font-size: 1.2em;
+/* Botão de exclusão */
+.delete-falta-btn {
+  background-color: #c42222;
+  color: white;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 3px;
+  font-size: 12px;
+  margin-top: 10px;
 }
 
-/* Media Queries para responsividade */
+.delete-falta-btn:hover {
+  background-color: #a51919;
+}
+
+/* Responsividade para telas de até 450px */
 @media (max-width: 450px) {
+  /* Barra de navegação */
   .barra_navegaçao {
-      padding: 10px 15px;
+      padding: 8px 15px;
   }
 
   .logo_item {
-      font-size: 18px;
+      font-size: 16px;
   }
 
-  .barra_navegaçao_content i {
-      font-size: 18px;
+  #logo_sesi {
+      width: 70px;
+      height: 30px;
   }
 
+  /* Ajustes do Container */
   .container {
-      width: 100%; /* Para telas menores, ocupar 100% */
-      padding: 15px; /* Reduzindo o padding */
+      padding: 10px;
   }
 
+  /* Alinhamento dos controles em coluna */
   .controls {
-      flex-direction: column; /* Coloca os controles em coluna */
-      align-items: center; /* Centraliza os controles */
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
   }
 
-  #month-selector,
-  #year-selector {
-      width: 100%; /* Para melhor visualização */
-      margin: 5px 0; /* Adiciona espaço entre os controles */
+  #month-selector, #year-selector {
+      width: 100%; /* Ocupa 100% do espaço */
+  }
+
+  #calendar {
+      grid-template-columns: repeat(4, 1fr); /* Reduz colunas para 4 para melhor visualização em telas pequenas */
+  }
+
+  /* Redimensionamento dos dias */
+  .day {
+      padding: 8px; /* Ajuste de padding */
+  }
+
+  /* Ajustes de texto para melhorar a leitura */
+  .selected-info, .selected-days h2 {
+      font-size: 1em;
+  }
+
+  .delete-falta-btn {
+      font-size: 10px;
   }
 }
