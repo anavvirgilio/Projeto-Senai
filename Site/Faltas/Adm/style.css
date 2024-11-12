@@ -121,9 +121,9 @@ h1 {
   border-radius: 4px;
 }
 
-.aula.selected {
+/*.aula.selected {
   background: #c42222;
-}
+}*/
 
 .selected-days, .selected-info {
   margin-top: 15px;
