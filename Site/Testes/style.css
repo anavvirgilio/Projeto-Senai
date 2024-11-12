@@ -1,3 +1,4 @@
+/* Estilos gerais */
 * {
   margin: 0;
   padding: 0;
@@ -10,19 +11,14 @@
   --red-color: #c42222;
   --grey-color: #707070;
   --grey-color-light: #aaa;
-  --black-color: #000000;
 }
 
 body {
-  background-color: #edd5d4;
+  background-color: #e7f2fd;
   transition: all 0.5s ease;
 }
 
-#logo_sesi {
-  width: 70px; /* Reduzido */
-  height: auto; /* Manter a proporção */
-}
-
+/* Barra de Navegação */
 .barra_navegaçao {
   position: fixed;
   top: 0;
@@ -32,7 +28,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 12px; /* Reduzido */
+  padding: 10px 20px;
   z-index: 1000;
   box-shadow: 0 0 2px var(--grey-color-light);
 }
@@ -40,8 +36,7 @@ body {
 .logo_item {
   display: flex;
   align-items: center;
-  column-gap: 5px; /* Mantido */
-  font-size: 16px; /* Reduzido */
+  font-size: 18px;
   font-weight: 500;
   color: var(--red-color);
 }
@@ -49,123 +44,157 @@ body {
 .barra_navegaçao_content {
   display: flex;
   align-items: center;
-  column-gap: 10px; /* Reduzido */
+  gap: 20px;
+}
+
+.barra_navegaçao_content i {
+  font-size: 18px;
+  color: var(--grey-color);
+}
+
+#logo_sesi {
+  width: 80px;
+  height: 35px;
 }
 
 .conteudo {
   margin: auto;
-  margin-top: 70px; /* Ajustado */
-  width: 90%; /* Mantido */
-  max-width: 500px; /* Limite reduzido */
-  background-color: #fff;
-  padding: 15px; /* Reduzido */
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 60px;
+  width: 100%;
+  padding: 10px;
+}
+
+/* Container e Conteúdo Principal */
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding: 15px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
 h1 {
-  font-size: 1.2em; /* Reduzido */
   text-align: center;
-  color: #fff;
-  background-color: #c42222;
-  padding: 10px; /* Reduzido */
+  color: #c42222;
+  font-size: 1.6em;
+  margin-bottom: 10px;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+#month-selector, #year-selector {
+  padding: 5px;
+  font-size: 1em;
+}
+
+#calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.day {
+  background: #eaeaea;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.day:hover {
+  background: #d1d1d1;
+}
+
+.aula {
+  background: #4CAF50;
+  color: white;
+  margin: 2px 0;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+/*.aula.selected {
+  background: #c42222;
+}*/
+
+.selected-days, .selected-info {
+  margin-top: 15px;
+  padding: 10px;
+  background: #f9f9f9;
   border-radius: 5px;
 }
 
-.criar_nota {
-  margin: 15px 0; /* Reduzido */
-}
-
-#input_nota {
-  height: 35px; /* Reduzido */
-  width: 100%;
-  border-radius: 25px;
-  font-size: 0.9em; /* Reduzido */
-  outline: none;
-  background-color: var(--white-color);
-  color: var(--grey-color);
-  border: 2px solid var(--grey-color-light);
-  padding: 0 15px; /* Mantido */
-}
-
-.btn_nota {
-  width: 100%; /* Mantido */
-  margin: 8px auto; /* Reduzido */
-}
-
-#addNota {
-  height: 35px; /* Reduzido */
-  width: 100%;
-  border-radius: 25px;
-  font-size: 0.9em; /* Reduzido */
-  outline: none;
-  background-color: var(--red-color);
-  color: var(--white-color);
-  border: none;
-  transition: background-color 0.3s;
-}
-
-#addNota:hover {
-  background-color: darkred;
-}
-
-#container_notas {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center; /* Centraliza as notas */
-  margin-top: 15px; /* Reduzido */
-}
-
-.note {
-  text-align: center;
-  margin: 5px; /* Reduzido */
-  border-radius: 15px;
-  background-color: rgb(234, 237, 239);
-  width: 90%; /* Mantido */
-  max-width: 180px; /* Limite reduzido */
-  padding: 10px; /* Reduzido */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  position: relative;
-  transition: transform 0.3s;
-}
-
-.note:hover {
-  transform: scale(1.02);
-}
-
-.delete-btn {
+/* Botão de exclusão */
+.delete-falta-btn {
   background-color: #c42222;
   color: white;
   border: none;
-  border-radius: 5px;
+  padding: 5px;
   cursor: pointer;
-  padding: 5px 8px; /* Reduzido */
-  position: absolute;
-  top: 8px; /* Reduzido */
-  right: 8px; /* Reduzido */
-  transition: background-color 0.3s;
+  border-radius: 3px;
+  font-size: 12px;
+  margin-top: 10px;
 }
 
-.delete-btn:hover {
-  background-color: darkred;
+.delete-falta-btn:hover {
+  background-color: #a51919;
 }
 
-/* Media Queries para telas menores */
-@media (max-width: 768px) {
+/* Responsividade para telas de até 450px */
+@media (max-width: 450px) {
+  /* Barra de navegação */
   .barra_navegaçao {
-    flex-direction: column; /* Coloca logo e ícones em coluna */
-    align-items: flex-start;
+      padding: 8px 15px;
   }
 
   .logo_item {
-    font-size: 14px; /* Reduzido */
+      font-size: 16px;
   }
 
-  h1 {
-    font-size: 1.1em; /* Reduzido */
+  #logo_sesi {
+      width: 70px;
+      height: 30px;
   }
 
-  .conteudo {
-    width: 95%; /* Mantido */
+  /* Ajustes do Container */
+  .container {
+      padding: 10px;
+  }
+
+  /* Alinhamento dos controles em coluna */
+  .controls {
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+  }
+
+  #month-selector, #year-selector {
+      width: 100%; /* Ocupa 100% do espaço */
+  }
+
+  #calendar {
+      grid-template-columns: repeat(4, 1fr); /* Reduz colunas para 4 para melhor visualização em telas pequenas */
+  }
+
+  /* Redimensionamento dos dias */
+  .day {
+      padding: 8px; /* Ajuste de padding */
+  }
+
+  /* Ajustes de texto para melhorar a leitura */
+  .selected-info, .selected-days h2 {
+      font-size: 1em;
+  }
+
+  .delete-falta-btn {
+      font-size: 10px;
   }
 }

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -31,5 +31,41 @@
 
     <script src="script.js"></script>
 </body>
+</html>-->
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convite - Apresentação de Projetos</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="sesi-logo.png">
+</head>
+<body>
+    <div class="invitation-container">
+        <div class="glow-border">
+            <img src="sesi-logo.png" alt="Logo da Escola" class="logo">
+            <h1>Convite Especial</h1>
+            <p id="intro-text">Venha conhecer os projetos inovadores dos nossos alunos!</p>
+            <p><strong>Data:</strong> 26 de Novembro</p>
+            <p><strong>Local:</strong> SESI - Santa Rita do Passa-Quatro</p>
+            <p><strong>Horário:</strong> 17:00 até 18:30</p>
+            <button onclick="openDetails()">Saiba Mais</button>
+        </div>
+    </div>
+
+    <div id="details-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeDetails()">&times;</span>
+            <h2>Detalhes do Evento</h2>
+            <p id="det">Prepare-se para uma tarde de inovação, criatividade e inspiração com projetos incríveis desenvolvidos pelos nossos alunos!</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
 </html>
+
 
